@@ -1,0 +1,40 @@
+:root {
+  font-family: system-ui, sans-serif;
+  color: #1f2937;
+  background: #f3f4f6;
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  width: min(760px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 48px 0;
+}
+
+a {
+  color: inherit;
+}
+
+.notice,
+article,
+.post-card {
+  padding: 20px;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  background: white;
+}
+
+.post-list {
+  display: grid;
+  gap: 16px;
+}
+
+.post-content {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font: inherit;
+  line-height: 1.7;
+}
