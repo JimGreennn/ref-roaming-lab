@@ -1,0 +1,10 @@
+name = "personal-blog"
+compatibility_date = "2026-08-26"
+pages_build_output_dir = ".svelte-kit/cloudflare"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "personal-blog-db"
+# Replace this local-only ID with the real ID returned by Cloudflare before remote deployment.
+database_id = "local"
+migrations_dir = "migrations"
