@@ -9,7 +9,7 @@
 - Cloudflare D1：保存文章、分类和网站设置。
 - 不需要购买 VPS 服务器。
 
-当前版本只验证基础链路，界面是简单占位界面，暂不包含登录、后台、会员、支付、CRM、图片上传或复杂 Markdown 编辑器。
+当前版本已经完成基础链路验证，界面仍是简单占位界面，暂不包含登录、后台、会员、支付、CRM、图片上传或复杂 Markdown 编辑器。
 
 ## 本地运行
 
@@ -61,17 +61,17 @@ pnpm run preview:cf
 
 ### 1. 创建 GitHub 仓库
 
-在 GitHub 新建一个空仓库，例如 personal-blog。不要勾选自动生成 README、.gitignore 或许可证，因为本地项目已经有这些文件。
+如果从零创建仓库，请使用空仓库，不要勾选自动生成 README、.gitignore 或许可证，因为本地项目已经有这些文件。本项目当前使用的仓库是 `JimGreennn/ref-roaming-lab`。
 
 在本地项目目录执行：
 
 ~~~powershell
-git remote add origin https://github.com/JimGreennn/personal-blog.git
+git remote add origin https://github.com/JimGreennn/ref-roaming-lab.git
 git branch -M main
 git push -u origin main
 ~~~
 
-如果仓库名称不同，只需要把命令中的 personal-blog 改成实际仓库名称。
+如果仓库名称不同，只需要把命令中的 `ref-roaming-lab` 改成实际仓库名称。
 
 ### 2. 创建远程 D1
 
@@ -81,7 +81,7 @@ git push -u origin main
 npx wrangler d1 create personal-blog-db
 ~~~
 
-命令会返回数据库 ID 和 D1 配置片段。用返回的真实 database_id 替换 wrangler.toml 中当前的 local，并确认：
+命令会返回数据库 ID 和 D1 配置片段。首次配置项目时，将返回的真实 database_id 写入 wrangler.toml，并确认：
 
 - binding 是 DB。
 - database_name 是 personal-blog-db。
@@ -113,6 +113,15 @@ pnpm run db:migrate:remote
 
 保存后重新部署。Cloudflare Pages 的生产和预览环境都应检查 binding 是否存在。
 
+当前线上部署已经完成：
+
+- GitHub 仓库：`JimGreennn/ref-roaming-lab`
+- Cloudflare Pages 项目：`ref-roaming-lab-git`
+- 生产分支：`main`
+- 生产域名：[roaming-lab.com](https://roaming-lab.com)
+
+之后提交到 `main` 分支，Cloudflare Pages 会自动构建并发布新版本。
+
 ## 项目目录
 
 ~~~text
@@ -140,7 +149,7 @@ wrangler.toml          Pages 构建和 D1 配置
 
 ## 后续开发顺序
 
-基础链路确认后，再按需要增加 Markdown 渲染、管理员登录、文章 CRUD、R2 图片上传、SEO、RSS 和自定义域名。
+基础链路已经确认。后续再按需要增加 Markdown 渲染、管理员登录、文章 CRUD、R2 图片上传、SEO 和 RSS。
 
 ## 官方文档
 
