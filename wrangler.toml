@@ -5,6 +5,6 @@ pages_build_output_dir = ".svelte-kit/cloudflare"
 [[d1_databases]]
 binding = "DB"
 database_name = "personal-blog-db"
-# Replace this local-only ID with the real ID returned by Cloudflare before remote deployment.
-database_id = "local"
+# Cloudflare D1 database ID used by the production Pages deployment.
+database_id = "40a29c1d-ea5e-4055-99f9-e28a54b94f76"
 migrations_dir = "migrations"
